@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user.save
       session[:user_id] = user.id
       flash.now[:info] = 'Account was successfully created'
-      redirect_to 
+      redirect_to new_user_path
     else
       render 'new'
     end
