@@ -1,3 +1,14 @@
 <h1> LOGIN </h1>
 
 <h1><%= link_to  "Go to Homepage", root_path %></h1>
+
+<%= form_for(:session, url: login_path ) do |f| %>
+
+    <p><%= f.label :email %></p>
+    <p><%= f.email_field :email %></p>
+    
+    <p><%= f.label :password %></p>
+    <p><%= f.password_field :password %></p>
+
+    <p><%= f.submit %></p>
+<% end %>

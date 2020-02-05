@@ -4,18 +4,14 @@
 
 <%= form_for @user do |f| %>
     
-    <div>
-        <%= f.label :username %>
-        <%= f.text_field :username %>
-    </div>
+    <p> <%= f.label :username %></p>
+    <p> <%= f.text_field :username %> </p>
 
-    <div>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-    </div>
+    <p><%= f.label :email %></p>
+    <p><%= f.email_field :email %></p>
     
-    <div>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-    </div>
+    <p><%= f.label :password %></p>
+    <p><%= f.password_field :password %></p>
+
+    <p><%= f.submit %></p>
 <% end %>
