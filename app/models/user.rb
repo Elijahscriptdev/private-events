@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
               length: { maximum: 25 },
               format: { with: VALID_EMAIL_REGEX }
 
+    has_many :events, foreign_key: :creator_id
+
     has_secure_password
 
   def self.new_token

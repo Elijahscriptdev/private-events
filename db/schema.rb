@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_213437) do
+ActiveRecord::Schema.define(version: 2020_02_06_213221) do
 
   create_table "events", force: :cascade do |t|
     t.string "event_name"
     t.string "event_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "creator_id"
+    t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,4 +30,5 @@ ActiveRecord::Schema.define(version: 2020_02_05_213437) do
     t.string "remember_digest"
   end
 
+  add_foreign_key "events", "users", column: "creator_id"
 end

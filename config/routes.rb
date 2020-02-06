@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "welcome#home"
   resources :sessions
   resources :users
-
+  resources :events
   get "signup", to: "users#new"
   get "signin", to: "sessions#new"
   post 'login', to: 'sessions#create'
