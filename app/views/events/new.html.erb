@@ -1,0 +1,18 @@
+<h1>Create Event</h1>
+
+<%= form_for @event do |f| %>
+
+  <%= f.label :event_name %>
+  <%= f.text_field :event_name, size: "10x1" %>
+
+  <%= f.label :event_date %>
+  <%= f.date_field :event_date, size: "10x1" %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location, size: "10x1" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, size: "10x5" %>
+
+  <%= f.submit %>
+<% end %>
