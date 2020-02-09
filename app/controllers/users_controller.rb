@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-    def new
+  def new
   	@user = User.new
   end
 
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
+    @events = @user.events
   end
 
   def create

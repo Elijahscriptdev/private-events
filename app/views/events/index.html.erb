@@ -1,5 +1,21 @@
 <h1>Event Listing HOME PAGE</h1>
 
-<h1><%= link_to  "sign up", signup_path %></h1>
+
+ <h1><%= link_to  "sign up", signup_path %></h1>
 <h1><%= link_to  "sign in", signin_path %></h1>
-<h1><%= link_to  "Create Event", events_path %></h1>
+<h1><%= link_to  "Create Event", new_event_path %></h1>
+
+
+<%
+=begin%>
+ <%= @events.inspect %> 
+<%
+=end%>
+
+<% @events.each do |event| %>
+    <div >
+    <%= event.event_name %><br>
+    
+    <%= event.event_date %>
+    <hr>        
+<% end %>
