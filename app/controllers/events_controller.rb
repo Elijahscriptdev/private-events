@@ -13,7 +13,8 @@ class EventsController < ApplicationController
     end
 
     def create
-        @event = current_user.events.build(event_params)
+        # @event = current_user.events.build(event_params)
+        @event = Event.new(event_params)
         @event.creator = current_user
         if @event.save
             flash[:success ] = "Event successfully created"
@@ -24,6 +25,13 @@ class EventsController < ApplicationController
         end
     end
 
+    def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:success] = 'Event has been deleted'
+    redirect_to root_path
+  end
+
     private
 
     def set_event
@@ -31,6 +39,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-        params.require(:event).permit(:event_name, :event_date)
+        params.require(:event).permit(:event_name, :event_date, :description, :location)
     end
 end
