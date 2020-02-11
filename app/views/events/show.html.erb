@@ -1,1 +1,28 @@
 <h1>Show Created Event</h1>
+
+<h1>Show Created Event</h1>
+
+    <div class="field">Date</div>
+    <div class="value"><%= @event.event_date.to_date.strftime("%m/%d/%Y") %></div>
+
+    <div class="field">Description</div>
+    <div class="value"><%= @event.description %></div>
+
+    <div class="field">Host</div>
+    <div class="value"><%= @event.creator.username %> (<%= @event.creator.email %>)</div>
+
+    <div class="row">
+    <div class="field">Attendees</div>
+    <div class="value">
+      <% if @event.attendees.any? %>
+        <ul class="list-unstyled">
+          <% @event.attendees.each do |attendee| %>
+            <li><%= attendee.name %> (<%= attendee.username %>)</li>
+          <% end %>
+        </ul>
+      <% else %>
+        This event has no attendees
+      <% end %>
+      </ul>
+    </div>
+  </div>
