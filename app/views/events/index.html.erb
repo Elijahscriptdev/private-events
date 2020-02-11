@@ -1,5 +1,8 @@
 <h1 align="center" class="my-4">Prime events</h1>
 
+<% if logged_in?  %>
+<%= link_to  "Create Event", new_event_path, class: "btn btn-secondary text-white" %>
+<% end %>
 <h2>Upcoming Events ()</h2>
 <h2>Past Events ()</h2>
 
