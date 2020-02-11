@@ -1,17 +1,38 @@
-<h1> SIGNUP </h1>
-
-<h1><%= link_to  "Go to Homepage", root_path %></h1>
+<h1 align="center" class="my-3 font-weight-bolder"> SIGNUP </h1>
 
 <%= form_for @user do |f| %>
-    
-    <p> <%= f.label :username %></p>
-    <p> <%= f.text_field :username %> </p>
+    <div class="form-group row">
+    <div class="control-label col-sm-2 ">
+        <%= f.label :username, class: "font-weight-bolder" %> 
+    </div>
+    <div class="col-sm-8">
+        <%= f.text_field :username, class: "form-control", placeholder: "Enter username", autofocus: true %>
+    </div>
+    </div>
 
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email %></p>
-    
-    <p><%= f.label :password %></p>
-    <p><%= f.password_field :password %></p>
+    <div class="form-group row">
+    <div class="control-label col-sm-2">
+        <%= f.label :email, class: "font-weight-bolder" %>
+    </div>
+    <div class="col-sm-8">
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+    </div>
+    </div>
 
-    <p><%= f.submit %></p>
+    <div class="form-group row">
+    <div class="control-label col-sm-2">
+        <%= f.label :password, class: "font-weight-bolder" %>
+    </div>
+    <div class="col-sm-8">
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autofocus: true %>
+    </div>
+    </div>
+
+    <div class="form-group row py-2 text-center">
+    <div class="col-sm-10 mx-5">
+        <%= f.submit "Sign up", class: "btn btn-secondary" %>
+        <%= link_to "Go Back to Events", events_path, class: "btn btn-secondary " %>
+    </div>
+    </div>
+
 <% end %>
