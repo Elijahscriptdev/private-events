@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2020_02_11_220621) do
 
+  create_table "attendances", force: :cascade do |t|
+    t.integer "attendee_id"
+    t.integer "attended_event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attended_event_id"], name: "index_attendances_on_attended_event_id"
+    t.index ["attendee_id"], name: "index_attendances_on_attendee_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "event_name"
     t.string "event_date"

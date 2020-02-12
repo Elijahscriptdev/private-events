@@ -14,7 +14,6 @@ class EventsController < ApplicationController
 
     def create
         @event = current_user.events.build(event_params)
-        # @event = Event.new(event_params)
         @event.creator = current_user
         if @event.save
             flash[:success ] = "Event successfully created"

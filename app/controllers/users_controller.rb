@@ -6,14 +6,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @events = @user.events
+    @user_events = @user.events
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       flash.now[:info] = "Welcome to the Private Events #{@user.username}"
-      # redirect_to user_path(@user)
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
