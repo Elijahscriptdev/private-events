@@ -9,22 +9,41 @@
     <h2>Event other users will be attending ()</h2>
 
     <% @user_events.each do |event| %>
-    <div class="mx-auto col-9 bg-light my-3 p-3">
-    <%= event.event_name %><br>
-    <%= event.event_date %><br>
-    <%= event.description %><br>
-    <%= event.location %><br>
- 
- <small class="text-success font-small">Created by: <%= event.creator.username %>  |  
-                   <%= time_ago_in_words(event.created_at) %> ago  |  
-                   last updated: <%= time_ago_in_words(event.updated_at) %> ago</small><br> 
+        <div class="mx-auto col-9 bg-light my-3 p-3">
+        <%= event.event_name %><br>
+        <%= event.event_date %><br>
+        <%= event.description %><br>
+        <%= event.location %><br>
+    
+        <small class="text-success font-small">Created by: <%= event.creator.username %>  |  
+                    <%= time_ago_in_words(event.created_at) %> ago  |  
+                    last updated: <%= time_ago_in_words(event.updated_at) %> ago</small><br> 
 
 
-    <% if logged_in?  %>
-    <%= link_to "Delete this Event", event_path(current_user), method: :delete,
-                                            data: { confirm: "Are you sure you want to delete this event?"},
-                                            class: "btn btn-danger" %>
+        <% if logged_in?  %>
+            <%= link_to "Delete this Event", event_path(current_user), method: :delete,
+                                                data: { confirm: "Are you sure you want to delete this event?"},
+                                                class: "btn btn-danger" %>
+        <% end %>
+        </div>        
     <% end %>
-    </div>        
-<% end %>
+
+    <h3>Past events</h3>
+        <% @past_events.each do |event| %>
+            <%= Event.find_by_id(event.id).event_name %><br>
+            <%= Event.find_by_id(event.id).event_date %><br>
+            <%= Event.find_by_id(event.id).description %><br>
+            <%= Event.find_by_id(event.id).location %><br>
+        <% end %>
+
+
+    <h3>Upcoming events</h3>
+        <% @upcoming_events.each do |event| %>
+            <%= Event.find_by_id(event.id).event_name %><br>
+            <%=Event.find_by_id(event.id).event_date %><br>
+            <%= Event.find_by_id(event.id).description %><br>
+            <%= Event.find_by_id(event.id).location %><br>
+        <% end %>
+
+       
     

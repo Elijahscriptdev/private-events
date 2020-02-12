@@ -19,7 +19,8 @@
 
 
     <% if logged_in?  %>
-    <%= link_to "Attend Event", events_path(@event), class: "btn btn-secondary" %>
+    <%= link_to "Attend Event", attend_event_path(user_id: current_user, event_id: event.id), class: "btn btn-secondary" %>
+
     <% end %>
     </div>        
 <% end %>

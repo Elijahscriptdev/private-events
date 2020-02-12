@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "signin", to: "sessions#new"
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  get 'attend_event', to: 'user_events#create'
+  get 'user_events', to: 'user_events#show'
 
   # get  'events', to: 'events#new'
   # post 'events', to: 'events#create'

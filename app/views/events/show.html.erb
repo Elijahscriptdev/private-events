@@ -17,7 +17,7 @@
       <% if @event.attendees.any? %>
         <ul class="list-unstyled">
           <% @event.attendees.each do |attendee| %>
-            <li><%= attendee.name %> (<%= attendee.username %>)</li>
+            <li><%= attendee.username %> (<%= attendee.username %>)</li>
           <% end %>
         </ul>
       <% else %>
