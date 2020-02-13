@@ -2,11 +2,14 @@
 
 
     <%= link_to  "Create Event", new_event_path, class: "btn btn-secondary text-white" %>
+    <div class="row">
+        <h2 class="text-success col">Upcoming Events (<%= @upcoming_events.count%>)</h2>
+        <h2 class="text-danger col ">Past Events (<%= @past_events.count%>)</h2>
+        <h2 class="text-primary col">Attending Events (<%= @user.attended_events.count%>)</h2>
+    </div>
+    
 
-    <h2>Upcoming Events (<%= @upcoming_events.count%>)</h2>
-    <h2>Past Events (<%= @past_events.count%>)</h2>
-    <h2>Attending Events (<%= @user.attended_events.count%>)</h2>
-
+    <h1 align="center" class="text-info" >My events: </h1>
     <% @user_events.each do |event| %>
         <div class="mx-auto col-9 bg-light my-3 p-3">
         <%= event.event_name %><br>
@@ -20,14 +23,12 @@
 
 
         <% if logged_in?  %>
-            <%= link_to "Delete this Event", event_path(current_user), method: :delete,
-                                                data: { confirm: "Are you sure you want to delete this event?"},
-                                                class: "btn btn-danger" %>
+            
         <% end %>
         </div>        
     <% end %>
 
-    <h3 align="center">Past events</h3>
+    <h3 align="center" class="text-danger">Past events</h3>
         <% @past_events.each do |event| %>
             <div class =" card col-9 mx-auto bg-light my-3">
                 <div><strong>Event name: </strong><%= Event.find_by_id(event.id).event_name %></div>
@@ -38,7 +39,7 @@
         <% end %>
 
 
-    <h3 align="center">Upcoming events</h3>
+    <h3 align="center" class="text-success">Upcoming events</h3>
         <% @upcoming_events.each do |event| %>
             <div class =" card col-9 mx-auto bg-light my-3">
                 <div><strong>Event name: </strong><%= Event.find_by_id(event.id).event_name %></div>

@@ -3,8 +3,6 @@
 <% if logged_in?  %>
 <%= link_to  "Create Event", new_event_path, class: "btn btn-secondary text-white" %>
 <% end %>
-<h2>Upcoming Events ()</h2>
-<h2>Past Events ()</h2>
 
 <% @events.each do |event| %>
     <div class="mx-auto col-9 bg-light my-3 p-3">
