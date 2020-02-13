@@ -1,24 +1,26 @@
+# frozen_string_literal: true
+
 class User < ActiveRecord::Base
-    attr_accessor :gen_token
-    before_create :create_token_and_save
-    before_save { self.email = email.downcase }
+  attr_accessor :gen_token
+  before_create :create_token_and_save
+  before_save { self.email = email.downcase }
 
-    validates :username, presence: true, 
-              uniqueness: { case_sensitive: false },
-              length: { minimum: 3, maximum: 25 }
+  validates :username, presence: true,
+                       uniqueness: { case_sensitive: false },
+                       length: { minimum: 3, maximum: 25 }
 
-              VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
-    validates :email, presence: true,
-              uniqueness: { case_sensitive: false },
-              length: { maximum: 25 },
-              format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true,
+                    uniqueness: { case_sensitive: false },
+                    length: { maximum: 25 },
+                    format: { with: VALID_EMAIL_REGEX }
 
-    has_many :events, foreign_key: :creator_id
-    has_many :user_events
-    has_many :attended_events, through: :user_events, source: :event
+  has_many :events, foreign_key: :creator_id
+  has_many :user_events
+  has_many :attended_events, through: :user_events, source: :event
 
-    has_secure_password
+  has_secure_password
 
   def self.new_token
     SecureRandom.urlsafe_base64

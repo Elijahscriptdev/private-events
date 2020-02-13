@@ -1,25 +1,47 @@
-# README
+# Associations With Rails - Eventbrite Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A site similar to a private Eventbrite which allows users to create events and then manage user signups. Users can create events and signup to attend an event created by another user. Events take place at a specific date and location. This project is designed to mimic the logic behind [Eventbrite](https://www.https:/www.eventbrite.com/).
 
-Things you may want to cover:
 
-* Ruby version
+## Technologies
 
-* System dependencies
+- HTML
+- Bootstrap
+- CSS
+- SASS
+- Ruby
+- Ruby on Rails
 
-* Configuration
+## Usage
 
-* Database creation
+> Clone the repository to your local machine
 
-* Database initialization
+```
+$ git clone https://github.com/Elijahscriptdev/private-events.git
+```
 
-* How to run the test suite
+> cd into the directory
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ cd private-events
+```
 
-* Deployment instructions
+> Then install the needed gems:
 
-* ...
-# private-events
+```
+$ bundle install
+```
+
+> Next, migrate the database:
+
+```
+$ rails db:migrate
+```
+
+> When done with the above steps, you'll be ready to run the app in a local server:
+
+```
+$ rails server
+```
+## This app was created by:
+[Elijah Obominuru](https://github.com/Elijahscriptdev) and [Judah Maina](https://github.com/JayKowski)
