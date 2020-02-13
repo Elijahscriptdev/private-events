@@ -3,10 +3,9 @@
 
     <%= link_to  "Create Event", new_event_path, class: "btn btn-secondary text-white" %>
 
-    <h2>Upcoming Events ()</h2>
-    <h2>Past Events ()</h2>
-    <h2>Attending Events ()</h2>
-    <h2>Event other users will be attending ()</h2>
+    <h2>Upcoming Events (<%= @upcoming_events.count%>)</h2>
+    <h2>Past Events (<%= @past_events.count%>)</h2>
+    <h2>Attending Events (<%= @user.attended_events.count%>)</h2>
 
     <% @user_events.each do |event| %>
         <div class="mx-auto col-9 bg-light my-3 p-3">
@@ -28,21 +27,25 @@
         </div>        
     <% end %>
 
-    <h3>Past events</h3>
+    <h3 align="center">Past events</h3>
         <% @past_events.each do |event| %>
-            <%= Event.find_by_id(event.id).event_name %><br>
-            <%= Event.find_by_id(event.id).event_date %><br>
-            <%= Event.find_by_id(event.id).description %><br>
-            <%= Event.find_by_id(event.id).location %><br>
+            <div class =" card col-9 mx-auto bg-light my-3">
+                <div><strong>Event name: </strong><%= Event.find_by_id(event.id).event_name %></div>
+                <div><strong>Event date: </strong><%= Event.find_by_id(event.id).event_date %></div>
+                <div><strong>description: </strong><%= Event.find_by_id(event.id).description %></div>
+                <div><strong>location: </strong><%= Event.find_by_id(event.id).location %></div>
+            </div>
         <% end %>
 
 
-    <h3>Upcoming events</h3>
+    <h3 align="center">Upcoming events</h3>
         <% @upcoming_events.each do |event| %>
-            <%= Event.find_by_id(event.id).event_name %><br>
-            <%=Event.find_by_id(event.id).event_date %><br>
-            <%= Event.find_by_id(event.id).description %><br>
-            <%= Event.find_by_id(event.id).location %><br>
+            <div class =" card col-9 mx-auto bg-light my-3">
+                <div><strong>Event name: </strong><%= Event.find_by_id(event.id).event_name %></div>
+                <div><strong>Event date: </strong><%= Event.find_by_id(event.id).event_date %></div>
+                <div><strong>description: </strong><%= Event.find_by_id(event.id).description %></div>
+                <div><strong>location: </strong><%= Event.find_by_id(event.id).location %></div>
+            </div>
         <% end %>
 
        

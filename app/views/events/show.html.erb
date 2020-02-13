@@ -1,28 +1,22 @@
-<h1>Show Created Event</h1>
+<h1 align="center">Show Created Event</h1>
+  <div class="card col-9 bg-light mx-auto mt-5">
+      <div><strong class="text-success" >Event Name: </strong><%= @event.event_name %>
+      <div><strong class="text-success">Date: </strong ><%= @event.event_date.to_date.strftime("%m/%d/%Y") %> </div>
+      <div><strong class="text-success" >Description: </strong><%= @event.description %>
+      <div><strong class="text-success">Host: </strong><%= @event.creator.username %> (<%= @event.creator.email %>)</div>
+    
+      <hr>
 
-<h1>Show Created Event</h1>
-
-    <div class="field">Date</div>
-    <div class="value"><%= @event.event_date.to_date.strftime("%m/%d/%Y") %></div>
-
-    <div class="field">Description</div>
-    <div class="value"><%= @event.description %></div>
-
-    <div class="field">Host</div>
-    <div class="value"><%= @event.creator.username %> (<%= @event.creator.email %>)</div>
-
-    <div class="row">
-    <div class="field">Attendees</div>
-    <div class="value">
-      <% if @event.attendees.any? %>
+      <div class="field text-warning"> <h4>Attendees: </h4></div>
+      <% if @event.attendees.any? %> 
         <ul class="list-unstyled">
           <% @event.attendees.each do |attendee| %>
-            <li><%= attendee.username %> (<%= attendee.username %>)</li>
+            <li> <strong>Name: </strong><%= attendee.username %></li>
+            <li><strong>Email: </strong><%= attendee.email %></li>
+            <% if @event.attendees.count > 1%> <hr> <% end %>
           <% end %>
         </ul>
       <% else %>
         This event has no attendees
       <% end %>
-      </ul>
-    </div>
   </div>

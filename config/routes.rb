@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'attend_event', to: 'user_events#create'
   get 'user_events', to: 'user_events#show'
+  # get 'attendees', to: 'events#show'
 
   # get  'events', to: 'events#new'
   # post 'events', to: 'events#create'
