@@ -11,7 +11,7 @@
 
     <h1 align="center" class="text-info" >My events: </h1>
     <% @user_events.each do |event| %>
-        <div class="mx-auto col-9 bg-light my-3 p-3">
+        <div class="mx-auto col-9 bg-light my-3 p-3 card">
         <%= event.event_name %><br>
         <%= event.event_date %><br>
         <%= event.description %><br>
