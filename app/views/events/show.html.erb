@@ -1,4 +1,8 @@
-<h1 align="center">Show Created Event</h1>
+<%
+=begin%>
+ <h1 align="center">Show Created Event</h1> 
+<%
+=end%>
   <div class="card col-9 bg-light mx-auto mt-5">
       <div><strong class="text-success" >Event Name: </strong><%= @event.event_name %>
       <div><strong class="text-success">Date: </strong ><%= @event.event_date.to_date.strftime("%m/%d/%Y") %> </div>

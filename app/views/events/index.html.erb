@@ -1,9 +1,6 @@
 <h1 align="center" class="my-4">Private Events</h1>
 
-<% if logged_in?  %>
-<%= link_to  "Create Event", new_event_path, class: "btn btn-secondary text-white" %>
-
-
+<%= create_event_button %>
 <h3 align="center" class="text-danger">Past events (<%= @past_events.count%>)</h3>
         <% @past_events.each do |event| %>
             <div class =" card col-9 mx-auto bg-light my-3">
@@ -28,10 +25,11 @@
                 <small class="text-success font-small">Created by: <%= event.creator.username %>  |  
                     <%= time_ago_in_words(event.created_at) %> ago  |  
                     last updated: <%= time_ago_in_words(event.updated_at) %> ago</small><br>
+                <% if logged_in?  %>
                 <%= link_to "Attend Event", attend_event_path(user_id: current_user, event_id: event.id), class: "btn btn-secondary", data: { confirm: "Are you sure you want to attend this event?"}%>
+                <% end %>
             </div>
         <% end %>
-<% end %>
 <%
 =begin%>
  <% @events.each do |event| %>
