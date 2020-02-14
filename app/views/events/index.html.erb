@@ -2,9 +2,39 @@
 
 <% if logged_in?  %>
 <%= link_to  "Create Event", new_event_path, class: "btn btn-secondary text-white" %>
-<% end %>
 
-<% @events.each do |event| %>
+
+<h3 align="center" class="text-danger">Past events (<%= @past_events.count%>)</h3>
+        <% @past_events.each do |event| %>
+            <div class =" card col-9 mx-auto bg-light my-3">
+                <div><strong>Event name: </strong><%= event.event_name %></div>
+                <div><strong>Event date: </strong><%= event.event_date %></div>
+                <div><strong>description: </strong><%= event.description %></div>
+                <div><strong>location: </strong><%= event.location %></div>
+                <small class="text-success font-small">Created by: <%= event.creator.username %>  |  
+                    <%= time_ago_in_words(event.created_at) %> ago  |  
+                    last updated: <%= time_ago_in_words(event.updated_at) %> ago</small><br>
+            </div>
+        <% end %>
+
+
+    <h3 align="center" class="text-success">Upcoming events (<%= @upcoming_events.count%>)</h3>
+        <% @upcoming_events.each do |event| %>
+            <div class =" card col-9 mx-auto bg-light my-3">
+                <div><strong>Event name: </strong><%= event.event_name %></div>
+                <div><strong>Event date: </strong><%= event.event_date %></div>
+                <div><strong>description: </strong><%= event.description %></div>
+                <div><strong>location: </strong><%= event.location %></div>
+                <small class="text-success font-small">Created by: <%= event.creator.username %>  |  
+                    <%= time_ago_in_words(event.created_at) %> ago  |  
+                    last updated: <%= time_ago_in_words(event.updated_at) %> ago</small><br>
+                <%= link_to "Attend Event", attend_event_path(user_id: current_user, event_id: event.id), class: "btn btn-secondary", data: { confirm: "Are you sure you want to attend this event?"}%>
+            </div>
+        <% end %>
+<% end %>
+<%
+=begin%>
+ <% @events.each do |event| %>
     <div class="mx-auto col-9 bg-light my-3 p-3">
     <strong class="text-success" >Event Name: </strong><%= event.event_name %><br>
     <strong class="text-success">Date: </strong ><%= event.event_date %><br>
@@ -21,5 +51,7 @@
 
     <% end %>
     </div>        
-<% end %>
+<% end %> 
+<%
+=end%>
 

@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user_events = @user.events
     @past_events = @user.attended_events.past
     @upcoming_events = @user.attended_events.upcoming
+    # @upcoming_events = @events.upcoming
+    # @past_events = @events.past
   end
 
   def create
