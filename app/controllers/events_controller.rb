@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  before_action :require_login, only: [:create, :show,]
+
   def index
     @events = Event.all
   end
@@ -33,6 +35,13 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def require_login
+    unless logged_in?
+      flash[:danger] = "You must be logged in to access this section"
+      redirect_to root_path
+    end
+  end
 
   def set_event
     @event = current_user.events.find(params[:id])
