@@ -38,6 +38,12 @@ $ bundle install
 $ rails db:migrate
 ```
 
+> To test tun:
+
+```
+$ bundle exec rspec
+```
+
 > When done with the above steps, you'll be ready to run the app in a local server:
 
 ```
