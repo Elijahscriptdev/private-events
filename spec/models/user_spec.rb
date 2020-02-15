@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:each) { @user = User.new(username: 'elijah', email: 'elijah@email.com', password: "1235") }
+  before(:each) { @user = User.new(username: 'elijah', email: 'elijah@email.com', password: '1235') }
   it 'is valid with valid attributes' do
     expect(@user).to be_valid
   end

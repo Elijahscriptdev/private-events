@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  before(:all) { @user = User.new(id: 1, username: 'jay', email: 'jay@email.com', password: "1235") }
-  before(:each) { @event = @user.events.build(event_name: 'event-example', location: 'location-example', event_date: '02/11/2020', description: 'Football competition') }
+  before(:all) { @user = User.new(id: 1, username: 'jay', email: 'jay@email.com', password: '1235') }
+  before(:each) { @event = @user.events.build(event_name: 'event', location: 'example', event_date: '02/11/2020', description: 'Football') }
 
   it 'is valid with valid attributes' do
     expect(@event).to be_valid
@@ -29,5 +31,4 @@ RSpec.describe Event, type: :model do
   it 'is upcoming events' do
     expect(Event.upcoming.include?(@event)).to be false
   end
-  
 end
