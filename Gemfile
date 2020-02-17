@@ -48,16 +48,16 @@ end
 
 group :test do
   # gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
-  gem 'rails-controller-testing'
-#   # The RSpec testing framework
-#   gem 'rspec-rails'
-#   # Adds support for Capybara system testing and selenium driver
-#   gem 'capybara', '>= 2.15'
-#   gem 'selenium-webdriver'
-#   # Easy installation and use of web drivers to run system tests with browsers
-#   gem 'webdrivers'
+  #   # The RSpec testing framework
+  #   gem 'rspec-rails'
+  #   # Adds support for Capybara system testing and selenium driver
+  #   gem 'capybara', '>= 2.15'
+  #   gem 'selenium-webdriver'
+  #   # Easy installation and use of web drivers to run system tests with browsers
+  #   gem 'webdrivers'
 end
 
 group :development, :test do

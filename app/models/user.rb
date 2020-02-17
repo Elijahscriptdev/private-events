@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX }
 
   has_many :events, foreign_key: :creator_id
-  has_many :user_events, foreign_key: "user_id"
+  has_many :user_events, foreign_key: 'user_id'
   has_many :attended_events, through: :user_events, source: :event
 
   has_secure_password

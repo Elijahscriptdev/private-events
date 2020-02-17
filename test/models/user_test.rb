@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
@@ -10,5 +11,4 @@ class UserTest < ActiveSupport::TestCase
   test 'should be valid' do
     assert @user.valid?
   end
-
 end

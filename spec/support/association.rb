@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-require_relative "support/association"
-
+require_relative 'support/association'
 
 RSpec::Matchers.define :have_many do |expected|
   match do |actual|
