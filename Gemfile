@@ -46,7 +46,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# group :test do
+group :test do
+  # gem 'shoulda-matchers'
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
+  gem 'rails-controller-testing'
 #   # The RSpec testing framework
 #   gem 'rspec-rails'
 #   # Adds support for Capybara system testing and selenium driver
@@ -54,7 +58,7 @@ end
 #   gem 'selenium-webdriver'
 #   # Easy installation and use of web drivers to run system tests with browsers
 #   gem 'webdrivers'
-# end
+end
 
 group :development, :test do
   # The RSpec testing framework

@@ -2,7 +2,7 @@
 
 class UserEventsController < ApplicationController
   before_action :logged_in?
-  before_action :require_login, only: %i[create show]
+  before_action :require_login, only: %i[new show]
 
   def create
     if UserEvent.find_by(user_id: params[:user_id], event_id: params[:event_id]).nil?

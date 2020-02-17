@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :require_login, only: %i[create show]
+  before_action :require_login, only: %i[new show create]
 
   def index
     @events = Event.all
