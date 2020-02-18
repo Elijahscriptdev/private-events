@@ -8,14 +8,12 @@ class UserEventsController < ApplicationController
     if UserEvent.find_by(user_id: params[:user_id], event_id: params[:event_id]).nil?
       @userevent = UserEvent.new(user_id: params[:user_id], event_id: params[:event_id])
       if @userevent.save
-        flash.now[:success] = 'Registration Successful !'
-        # redirect_to root_path
+        flash.now[:success] = 'Registration Successful !!!'
       end
     else
 
-      flash.now[:danger] = "Didn't you already register ?"
+      flash.now[:danger] = "Not Successful!!!"
     end
-    # redirect_to event_path(params[:event_id])
     redirect_to root_path
   end
 

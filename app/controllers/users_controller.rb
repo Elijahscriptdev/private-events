@@ -10,8 +10,6 @@ class UsersController < ApplicationController
     @user_events = @user.events
     @past_events = @user.attended_events.past
     @upcoming_events = @user.attended_events.upcoming
-    # @upcoming_events = @events.upcoming
-    # @past_events = @events.past
   end
 
   def create
@@ -20,8 +18,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "Welcome to the Private Events #{@user.username}"
       redirect_to user_path(@user)
-      # flash.now[:info] = "Welcome to the Private Events #{@user.username}"
-      # redirect_to root_path
     else
       render 'new'
     end
