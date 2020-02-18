@@ -1,0 +1,47 @@
+    <h5 align="right" class="text-secondary">WELCOME <%= @user.username.upcase %>!!!!!!!!!</h5>
+
+
+    <%= link_to  "Create Event", new_event_path, class: "btn btn-secondary text-white" %>
+    <div class="row">
+        <h2 class="text-success col">Upcoming Events (<%= @upcoming_events.count%>)</h2>
+        <h2 class="text-danger col ">Past Events (<%= @past_events.count%>)</h2>
+        <h2 class="text-primary col">Attending Events (<%= @user.attended_events.count%>)</h2>
+    </div>
+    
+    <h1 align="center" class="text-info" >My events: </h1>
+    <% @user_events.each do |event| %>
+        <div class="mx-auto col-9 bg-light my-3 p-3 card">
+        <%= event.event_name %><br>
+        <%= event.event_date %><br>
+        <%= event.description %><br>
+        <%= event.location %><br>
+    
+        <small class="text-success font-small">Created by: <%= event.creator.username %>  |  
+                    <%= time_ago_in_words(event.created_at) %> ago  |  
+                    last updated: <%= time_ago_in_words(event.updated_at) %> ago</small><br> 
+        </div>        
+    <% end %>
+
+    <h3 align="center" class="text-danger">Past events</h3>
+        <% @past_events.each do |event| %>
+            <div class =" card col-9 mx-auto bg-light my-3">
+                <div><strong>Event name: </strong><%= event.event_name %></div>
+                <div><strong>Event date: </strong><%= event.event_date %></div>
+                <div><strong>description: </strong><%= event.description %></div>
+                <div><strong>location: </strong><%= event.location %></div>
+            </div>
+        <% end %>
+
+
+    <h3 align="center" class="text-success">Upcoming events</h3>
+        <% @upcoming_events.each do |event| %>
+            <div class =" card col-9 mx-auto bg-light my-3">
+                <div><strong>Event name: </strong><%= event.event_name %></div>
+                <div><strong>Event date: </strong><%= event.event_date %></div>
+                <div><strong>description: </strong><%= event.description %></div>
+                <div><strong>location: </strong><%= event.location %></div>
+            </div>
+        <% end %>
+
+       
+    
