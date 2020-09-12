@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary ">
+  <%= link_to "Private Event", root_path, class: "navbar-brand text-white font-weight-bolder", id: "logo" %>
+  <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon text-white"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item ">
+        <%= link_to "View Events", events_path, class: "nav-link text-white", id: "event_all" %>
+      </li>
+      <% if logged_in? %>
+      <li class="nav-item">
+        <%= link_to  "Create Event", new_event_path, class: "nav-link text-white" %>
+      </li>
+      <% end %>
+    </ul>
+ 
+    <ul class="nav navbar-nav navbar-right mx-1">
+    <% if logged_in? %>
+
+      <li class="nav-item">
+        <%= link_to  "Profile: #{current_user.username} ", user_path(current_user), class: "nav-link text-white" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Log out', logout_path, method: :delete, class: "btn btn-outline-dark my-2 my-sm-0 nav-link text-white" %>
+      </li>
+      
+      <% else %>
+      <li class="nav-item mx-1">
+        <%= link_to  "SIGN IN", signin_path, class: "btn btn-outline-dark my-2 my-sm-0 nav-link text-white" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'SIGN UP', signup_path, class: "btn btn-outline-dark my-2 my-sm-0 nav-link text-white" %>
+      </li>
+      <% end %>
+      </ul>
+  </div>
+</nav>
